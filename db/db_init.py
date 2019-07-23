@@ -10,12 +10,18 @@ CommentsCol = mydb["Comments"]
 
 
 last_inserted_user=UsersCol.find_one({},sort=[( '_id', pymongo.DESCENDING )])
-last_inserted_user_id=last_inserted_user["user_id"]
+last_inserted_user_id=0
+if len(last_inserted_user)>0:
+	last_inserted_user_id=last_inserted_user["user_id"]
 
 
 last_inserted_post=PostsCol.find_one({},sort=[( '_id', pymongo.DESCENDING )])
-last_inserted_post_id=last_inserted_post["post_id"]
+last_inserted_post_id=0
+if len(last_inserted_post)>0:
+	last_inserted_post_id=last_inserted_post["post_id"]
 
 
 last_inserted_comment=CommentsCol.find_one({},sort=[( '_id', pymongo.DESCENDING )])
-last_inserted_comment_id=last_inserted_comment["comment_id"]
+last_inserted_comment_id=0
+if len(last_inserted_comment)>0:
+	last_inserted_comment_id=last_inserted_comment["comment_id"]
