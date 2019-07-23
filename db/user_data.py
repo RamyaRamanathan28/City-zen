@@ -36,16 +36,20 @@ def userIsGovtEmp(username):
 def validUserPassword(username,entered_password):
 	myquery = { "name": username,"password":entered_password}
 	result=list(UsersCol.find(myquery))
-	#print(result)
+	print(len(result))
 	if len(result)>0:
 		return True
 	return False
 
+def getUserData(username):
+	myquery = { "name": username}
+	result=list(UsersCol.find(myquery))
+	return result
+
 
 # createNewUser("Person1","password","Bangalore","ABC","VOTERID",created_by_Admin=False,designation="Citizen",department=None)
 
-for x in UsersCol.find():
-  print(x)
+# a
 
 # print(validUserPassword("Sruthi","password"))
 # print(validUserPassword("Sruthi","ABC"))

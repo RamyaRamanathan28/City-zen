@@ -199,7 +199,7 @@ p {
       display: block; } }
 
 .btn-group1 {
-  padding: 24px;
+  padding: 15px;
   width: 40%;
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
@@ -210,15 +210,33 @@ p {
       border-radius: 3px;
       margin: 0 0 10px;
       padding: 17px; } }
-
+  .myLargeTextboxId {
+    font-size:25px;
+    height:330px;
+    left:0;
+    line-height:33px;
+    padding:8px 8px 7px;
+    top:0;
+    width:1000px;
+  }
+  .myLargeTextboxId2 {
+    font-size:25px;
+    height:50px;
+    left:0;
+    line-height:33px;
+    padding:8px 8px 7px;
+    top:0;
+    width:1000px;
+  }
 .btn-group2 {
   position: relative;
-  padding: 24px;
-  width: 33%;
+  padding: 120px;
+  width: 100%;
   border-top: none;
   border-right: none;
   border-bottom: none;
-  border-left: 1px solid #ccc; }
+  border-left:solid #ccc; 
+height: 20%; }
   @media (max-width: 576px) {
     .btn-group2 {
       width: 100%;
@@ -393,7 +411,7 @@ p {
   padding: 15px 0 0;
   line-height: 1; }
   .bottom-icons span {
-    float: right;
+    float: left;
     line-height: 1;
     padding: 0 0 0 12px; }
 
@@ -958,5 +976,7 @@ footer {
 #map {
   height: 100%;
   width: 100%; }
+
+
 
 /*# sourceMappingURL=style.css.map */
