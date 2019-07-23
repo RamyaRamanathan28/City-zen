@@ -38,13 +38,61 @@
             //         document.getElementById("main").appendChild(d)
             //     }
             // });
-
+            var aff=0;
+            var upC=0;
+            var downC=0;
             function up(){
-                d=document.getElementById("upImage")
-                d.src="./images/ups.png"
-                b=document.getElementById("down")
-                b.style.backgroundColor="black"
 
+                d=document.getElementById("upImage")
+                b=document.getElementById("down")
+                countDiv=document.getElementById("upCount")
+                val=countDiv.innerHTML
+                if(upC==0){
+                    upC=1;
+                    d.src="./images/ups.png"
+                    b.style.backgroundColor="grey"
+                    b.disabled = "disabled";
+                    countDiv.innerHTML=val+1;
+                }
+                else{
+                    upC=0;
+                    d.src="./images/uph.png"
+                    b.style.backgroundColor="white"
+                    b.disabled = "enabled";
+                    countDiv.innerHTML=val-1;
+                }
+            }
+            function down(){
+                d=document.getElementById("downImage")
+                b=document.getElementById("up")
+                countDiv=document.getElementById("downCount")
+                val=countDiv.innerHTML
+                if(downC==0){
+                    downC=1;
+                    d.src="./images/downs.png"
+                    b.style.backgroundColor="grey"
+                    b.disabled = "disabled";
+                    countDiv.innerHTML=val+1;
+                }
+                else{
+                    downC=0;
+                    d.src="./images/downh.png"
+                    b.style.backgroundColor="white"
+                    b.disabled = "enabled";
+                    countDiv.innerHTML=val-1;
+                }
+            }
+            function affect(){
+                
+                d=document.getElementById("affect")
+                if (aff==0){
+                    aff=1;
+                    d.style.backgroundColor="green"
+                }
+                else{
+                    aff=0;
+                    d.style.backgroundColor="white"
+                }
             }
 
             
@@ -222,12 +270,12 @@
                                         </a>
                                         </div>
                                             <div class="bottom-icons">
-                                            <button id="up" onclick="up()"style = "width: 40px; height: 40px"><img id="upImage" src = "./images/uph.png"/></button>
-                                            {{item[3]}}
-                                            <button  id ="down" style = "width: 40px; height: 40px"><img id="downImage" src = "./images/downh.png"/></button>
-                                            {{item[4]}}
-                                            <button  id="affect" style = " height: 40px">Affects me</button>
-                                            {{item[5]}}
+                                            <button id="up" onclick="up()" style = "width: 40px; height: 40px"><img id="upImage" src = "./images/uph.png"/></button>
+                                            <p id="upCount">{{item[3]}}</p> 
+                                            <button  id ="down" onclick="down()"  style = "width: 40px; height: 40px"><img id="downImage" src = "./images/downh.png"/></button>
+                                            <p id="downCount">{{item[4]}}</p> 
+                                            <button  id="affect" onclick="affect()"  style = " height: 40px">Affects me</button>
+                                            
                                             <br>
                                             <!-- <span class="ti-heart\"></span>
                                             <span class="ti-bookmark"></span> -->
