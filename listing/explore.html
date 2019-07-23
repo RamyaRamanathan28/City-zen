@@ -39,6 +39,14 @@
             //     }
             // });
 
+            function up(){
+                d=document.getElementById("upImage")
+                d.src="./images/ups.png"
+                b=document.getElementById("down")
+                b.style.backgroundColor="black"
+
+            }
+
             
     </script>
 </head>
@@ -211,19 +219,20 @@
                                         <div style = "word-wrap:normal">
                                         <h3>{{item[0]}}</h3>
                                         <p>{{item[1]}}</p>
+                                        </a>
                                         </div>
                                             <div class="bottom-icons">
-                                            <button style = "width: 40px; height: 40px"><img src = "./images/uph.png"/></button>
+                                            <button id="up" onclick="up()"style = "width: 40px; height: 40px"><img id="upImage" src = "./images/uph.png"/></button>
                                             {{item[3]}}
-                                            <button style = "width: 40px; height: 40px"><img src = "./images/downh.png"/></button>
+                                            <button  id ="down" style = "width: 40px; height: 40px"><img id="downImage" src = "./images/downh.png"/></button>
                                             {{item[4]}}
-                                            <button  style = " height: 40px">Affects me</button>
+                                            <button  id="affect" style = " height: 40px">Affects me</button>
                                             {{item[5]}}
                                             <br>
                                             <!-- <span class="ti-heart\"></span>
                                             <span class="ti-bookmark"></span> -->
                                         </div>
-                                    </a>
+                                    
                                 </div>
                             </div>
 
@@ -349,7 +358,7 @@
                                         <a href=\"detail.html\"\>\
                                             <h6>Burger &amp; Lobster</h6\>\
                                             <div class=\"bottom-icons\"\>\
-                                                \<img src = \"\"\>
+                                                \<img src = \"\"\>\
                                                 \<span class=\"ti-heart\"\></span\>\
                                                 <span class=\"ti-bookmark\">\</span\>\
                                             </div\>\
