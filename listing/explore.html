@@ -38,6 +38,7 @@
             //         document.getElementById("main").appendChild(d)
             //     }
             // });
+            var statuses=["Posted","Tracking","Solved","Closed"]
             var aff=0;
             var upC=0;
             var downC=0;
@@ -53,14 +54,14 @@
                     d.src="./images/ups.png"
                     b.style.backgroundColor="grey"
                     b.disabled = "true";
-                    countDiv.innerHTML=val+1;
+                    //countDiv.innerHTML=val+1;
                 }
                 else{
                     upC=0;
                     d.src="./images/uph.png"
                     b.style.backgroundColor="white"
                     b.disabled = "";
-                    countDiv.innerHTML=val-1;
+                   // countDiv.innerHTML=val-1;
                 }
                 console.log("down btn disabled ",b.disabled)
             }
@@ -74,14 +75,14 @@
                     d.src="./images/downs.png"
                     b.style.backgroundColor="grey"
                     b.disabled = "true";
-                    countDiv.innerHTML=val+1;
+                  //  countDiv.innerHTML=val+1;
                 }
                 else{
                     downC=0;
                     d.src="./images/downh.png"
                     b.style.backgroundColor="white"
                     b.disabled = "";
-                    countDiv.innerHTML=val-1;
+                   // countDiv.innerHTML=val-1;
                 }
             }
             function affect(){
@@ -99,6 +100,22 @@
 
             function changeStatus(){
                 console.log("changing status")
+                d=document.getElementById("status")
+                status=d.innerHTML;
+
+                index=statuses.indexOf(status)
+                if( index<3){
+                    index=index+1
+                    d.innerHTML=statuses[index]
+                    
+                }
+                else{
+                    b=document.getElementById("statusButton")
+                    b.disabled="True";
+                }
+                if(index==3){
+                    d.style.color="green";
+                }
             }
     </script>
 </head>
@@ -269,7 +286,7 @@
                                 <div class="featured-title-box">
                                     <a href="detail.html">
                                         <div style = "word-wrap:normal">
-                                            <div  align="right">STATUS : {{item[status]}} </div>
+                                            <div align="right">STATUS : <p style = "color:black" id="status">Posted</p> </div>
                                         <h3>{{item[0]}}</h3>
                                         <p>{{item[1]}}</p>
                                         </a>
@@ -280,8 +297,8 @@
                                             <button  id ="down" onclick="down()"  style = "width: 40px; height: 40px"><img id="downImage" src = "./images/downh.png"/></button>
                                             <p id="downCount">{{item[4]}}</p> 
                                             <button  id="affect" onclick="affect()"  style = " height: 40px">Affects me</button>
-                                            <button  style="float: right;"  id="statusButton" onclick="changeStatus()"  style = " height: 40px">Change Status</button>
-                                           
+                                            <button  style="float: right"  id="statusButton" onclick="changeStatus()"  style = " height: 40px">Upgrade Status</button> 
+                                            
                                             <br>
                                             <!-- <span class="ti-heart\"></span>
                                             <span class="ti-bookmark"></span> -->
