@@ -109,7 +109,7 @@
             <div class="container-fluid">
                 <div class="row">
                         <div class="col-md responsive-wrap" style="background-color: lightgrey"> </div>
-                    <div class="col-md-7 responsive-wrap">
+                    <div class="col-md-5 responsive-wrap">
                         <div class="row detail-filter-wrap">
                             <div class="col-md-8 featured-responsive">
                                 <div class="detail-filter-text">
@@ -175,9 +175,35 @@
                             </div>
                         </div> -->
                     </div>
-                    <div class="col-md-4 responsive-wrap" style="background-color: lightgrey">
+                    <div class="col-md-6 responsive-wrap" style="background-color: lightgrey">
                         <br><br>
                         <h4>My Posts</h4>
+                        { % for item in data %}
+
+                        <div class="featured-place-wrap" style="background-color:#f1f1f1">
+                                <div class="featured-title-box">
+                                    <a href="detail.html">
+                                        <div style = "word-wrap:normal">
+                                        <h3>{{item[0]}}</h3>
+                                        <p>{{item[1]}}</p>
+                                        </div>
+                                            <div class="bottom-icons">
+                                            <!-- <button  style = " height: 40px;background-color: rgb(147, 241, 147)">Close Issue</button> -->
+                                            <div class="reserve-btn">
+                                                    <div class="featured-btn-wrap">
+                                                        <a href="#" class="btn btn-danger">Close Issue</a>
+                                                    </div>
+                                                </div>
+                                                <br><br>
+                                            Press if you think this issue has been resolved
+                                            <!-- <span class="ti-heart\"></span>
+                                            <span class="ti-bookmark"></span> -->
+                                        </div>
+                                    </a>
+                                </div>
+                        </div>
+
+                            {% endfor %}
                         <p>You have no posts yet. Make your opinions heard now!</p>
                     </div>
                 </div>
