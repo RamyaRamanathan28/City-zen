@@ -42,25 +42,27 @@
             var upC=0;
             var downC=0;
             function up(){
-
+                console.log("upC ",upC)
                 d=document.getElementById("upImage")
                 b=document.getElementById("down")
                 countDiv=document.getElementById("upCount")
                 val=countDiv.innerHTML
+                
                 if(upC==0){
                     upC=1;
                     d.src="./images/ups.png"
                     b.style.backgroundColor="grey"
-                    b.disabled = "disabled";
+                    b.disabled = "true";
                     countDiv.innerHTML=val+1;
                 }
                 else{
                     upC=0;
                     d.src="./images/uph.png"
                     b.style.backgroundColor="white"
-                    b.disabled = "enabled";
+                    b.disabled = "";
                     countDiv.innerHTML=val-1;
                 }
+                console.log("down btn disabled ",b.disabled)
             }
             function down(){
                 d=document.getElementById("downImage")
@@ -71,14 +73,14 @@
                     downC=1;
                     d.src="./images/downs.png"
                     b.style.backgroundColor="grey"
-                    b.disabled = "disabled";
+                    b.disabled = "true";
                     countDiv.innerHTML=val+1;
                 }
                 else{
                     downC=0;
                     d.src="./images/downh.png"
                     b.style.backgroundColor="white"
-                    b.disabled = "enabled";
+                    b.disabled = "";
                     countDiv.innerHTML=val-1;
                 }
             }
