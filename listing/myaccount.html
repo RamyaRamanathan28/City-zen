@@ -39,70 +39,55 @@
             //     }
             // });
 
+                function closeIssue(){
+                   
+                    d=document.getElementById("status")
+                    status=d.innerHTML;
+                    d.innerHTML="SOLVED"
+                    d.style.color="green";
+
+                    document.getElementById("closeIssue").disabled="True";
+
+                    document.getElementById("box").style.backgroundColor="#fcf8a9"
+                }
             
     </script>
 </head>
 
 <body>
         <!--============================= HEADER =============================-->
-        <div class="dark-bg sticky-top">
+        <div class="light-bg sticky-top">
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        <nav class="navbar navbar-expand-lg navbar-light">
-                            <a class="navbar-brand" href="index.html">Listing</a>
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="icon-menu"></span>
-                </button>
-                            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-                                <ul class="navbar-nav">
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                       Explore
-                       <span class="icon-arrow-down"></span>
-                     </a>
-                                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </li>
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Listing
-                      <span class="icon-arrow-down"></span>
-                    </a>
-                                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </li>
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Pages
-                      <span class="icon-arrow-down"></span>
-                    </a>
-                                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </li>
-                                    <li class="nav-item active">
-                                        <a class="nav-link" href="#">About</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Blog</a>
-                                    </li>
-                                    <li><a href="#" class="btn btn-outline-light top-btn"><span class="ti-plus"></span> Add Listing</a></li>
-                                </ul>
-                            </div>
-                        </nav>
-                    </div>
-                </div>
+            <div class="row">
+            <div class="col-md-12">
+            <nav class="navbar navbar-expand-lg navbar-light">
+            <IMG SRC="images/logo.png" ALT="Cityzen" WIDTH=120 HEIGHT=40>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="icon-menu"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+            <li class="nav-item active">
+            <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item active">
+            <a class="nav-link" href="#">Explore</a>
+            </li>
+            </li><li class="nav-item active">
+            <a class="nav-link" href="#">Announcements</a>
+            </li>
+            <li class="nav-item active">
+            <a class="nav-link" href="#">About</a>
+            </li>
+            
+            <li><a href="#" class="btn top-btn"><span class="ti-plus"></span> Create Petition </a></li>
+            </ul>
             </div>
-        </div>
+            </nav>
+            </div>
+            </div>
+            </div>
+            </div>
         <!--//END HEADER -->
         <!--============================= DETAIL =============================-->
         <section>
@@ -127,8 +112,7 @@
                                         <h6>Name : {{item[1]}}</h6><br>
                                         <h6>City <span></span>: {{item[2]}}</h6><br>
                                         <h6>Area<span></span>: {{item[3]}}  </h6><br>
-                                        <div style="text-align:right"><span></span> <button  style = " height: 30px">Edit Details</button></h6></div>
-
+                                        
                                         </div>
                                 </div>
                         </div>
@@ -177,21 +161,23 @@
                     </div>
                     <div class="col-md-6 responsive-wrap" style="background-color: lightgrey">
                         <br><br>
-                        <h4>My Posts</h4>
+                        <h4>My Issues</h4>
                         { % for item in data %}
 
                         <div class="featured-place-wrap" style="background-color:#f1f1f1">
-                                <div class="featured-title-box">
-                                    <a href="detail.html">
+                                <div class="featured-title-box" id="box">
+                                    <a href="detail.html"></a>
                                         <div style = "word-wrap:normal">
+                                            <div align="right">STATUS : <p style = "color:black" id="status">Posted</p> </div>
                                         <h3>{{item[0]}}</h3>
                                         <p>{{item[1]}}</p>
                                         </div>
+                                    </a>
                                             <div class="bottom-icons">
                                             <!-- <button  style = " height: 40px;background-color: rgb(147, 241, 147)">Close Issue</button> -->
                                             <div class="reserve-btn">
                                                     <div class="featured-btn-wrap">
-                                                        <a href="#" class="btn btn-danger">Close Issue</a>
+                                                        <button id="closeIssue" onclick="closeIssue()" class="btn btn-danger">Close Issue</button>
                                                     </div>
                                                 </div>
                                                 <br><br>
@@ -199,7 +185,7 @@
                                             <!-- <span class="ti-heart\"></span>
                                             <span class="ti-bookmark"></span> -->
                                         </div>
-                                    </a>
+                                    
                                 </div>
                         </div>
 
