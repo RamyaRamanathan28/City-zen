@@ -89,7 +89,7 @@
                 d=document.getElementById("affect")
                 if (aff==0){
                     aff=1;
-                    d.style.backgroundColor="green"
+                    d.style.backgroundColor="#80ffcc"
                 }
                 else{
                     aff=0;
@@ -97,7 +97,9 @@
                 }
             }
 
-            
+            function changeStatus(){
+                console.log("changing status")
+            }
     </script>
 </head>
 
@@ -267,21 +269,25 @@
                                 <div class="featured-title-box">
                                     <a href="detail.html">
                                         <div style = "word-wrap:normal">
+                                            <div  align="right">STATUS : {{item[status]}} </div>
                                         <h3>{{item[0]}}</h3>
                                         <p>{{item[1]}}</p>
                                         </a>
-                                        </div>
-                                            <div class="bottom-icons">
+                                </div>
+                                <div class="bottom-icons">
                                             <button id="up" onclick="up()" style = "width: 40px; height: 40px"><img id="upImage" src = "./images/uph.png"/></button>
                                             <p id="upCount">{{item[3]}}</p> 
                                             <button  id ="down" onclick="down()"  style = "width: 40px; height: 40px"><img id="downImage" src = "./images/downh.png"/></button>
                                             <p id="downCount">{{item[4]}}</p> 
                                             <button  id="affect" onclick="affect()"  style = " height: 40px">Affects me</button>
-                                            
+                                            <button  style="float: right;"  id="statusButton" onclick="changeStatus()"  style = " height: 40px">Change Status</button>
+                                           
                                             <br>
                                             <!-- <span class="ti-heart\"></span>
                                             <span class="ti-bookmark"></span> -->
-                                        </div>
+
+                                            
+                                    </div>
                                     
                                 </div>
                             </div>
