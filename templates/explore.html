@@ -14,17 +14,17 @@
     <!-- Page Title -->
     <title>Listing &amp; Directory Website Template</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="./static/css/bootstrap.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900" rel="stylesheet">
     <!-- Simple line Icon -->
-    <link rel="stylesheet" href="css/simple-line-icons.css">
+    <link rel="stylesheet" href="./static/css/simple-line-icons.css">
     <!-- Themify Icon -->
-    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="./static/css/themify-icons.css">
     <!-- Hover Effects -->
-    <link rel="stylesheet" href="css/set1.css">
+    <link rel="stylesheet" href="./static/css/set1.css">
     <!-- Main CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./static/css/style.css">
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     <script>
             // $(document).ready(function(){
@@ -259,61 +259,35 @@
             </div>
                         
                         
-                        { % for item in data %}
+                        {% for item in data %}
 
                         <div class="featured-place-wrap" style="background-color:#f1f1f1">
                                 <div class="featured-title-box">
-                                    <a href="detail.html">
+                                    <a href='/detail?post_id={{item["post_id"]}}&username={{username}}'>
                                         <div style = "word-wrap:normal">
-                                            <div align="right">STATUS : <p style = "color:black" id="status">Posted</p> </div>
-                                        <h3>{{item[0]}}</h3>
-                                        <p>{{item[1]}}</p>
+                                        <h3>{{item["title"]}}</h3>
+                                        <p>{{item["text"]}}</p>
                                         </a>
-                                </div>
-                                <div class="bottom-icons">
-                                            <button id="up" onclick="up()" style = "width: 40px; height: 40px"><img id="upImage" src = "./images/uph.png"/></button>
-                                            <p id="upCount">{{item[3]}}</p> 
-                                            <button  id ="down" onclick="down()"  style = "width: 40px; height: 40px"><img id="downImage" src = "./images/downh.png"/></button>
-                                            <p id="downCount">{{item[4]}}</p> 
-                                            <button  id="affect" onclick="affect()"  style = " height: 40px">Affects me</button>
-                                            <button  style="float: right"  id="statusButton" onclick="changeStatus()"  style = " height: 40px">Upgrade Status</button> 
-                                            
+                                        </div>
+                                            <div class="bottom-icons">
+                                            <form action='/post?post_id={{item["post_id"]}}&username={{username}}' method='POST'>
+                                            <button type = "submit"  id="up" onclick="up()" name = "up" style = "width: 40px; height: 40px"><img id="upImage" src = "./static/images/uph.png"/></button>
+                                            {{item["support_votes"]}}
+                                            <button type = "submit" id ="down" name = "down" style = "width: 40px; height: 40px"><img id="downImage" src = "./static/images/downh.png"/></button>
+                                            {{item["no_support_votes"]}}
+                                            <button  type = "submit"  id="affect" name = "affects" style = " height: 40px">Affects me</button>
+                                            {{item["affects_me_votes"]}}
                                             <br>
+                                        </form>
                                             <!-- <span class="ti-heart\"></span>
                                             <span class="ti-bookmark"></span> -->
-
-                                            
-                                    </div>
+                                        </div>
                                     
                                 </div>
                             </div>
 
                             {% endfor %}
-                            <!-- { % for item in data %}
-
-                            '<div class="featured-place-wrap" style="background-color:#f1f1f1">
-                                    <div class="featured-title-box">
-                                        <a href="detail.html">
-                                            <div style = "word-wrap:normal">
-                                            <h3>{{item[0]}}</h3>
-                                            <p>{{item[1]}}</p>
-                                            </div>
-                                                <div class="bottom-icons">
-                                                <button style = "width: 40px; height: 40px"><img src = "./images/uph.png"/></button>
-                                                {{item[3]}}
-                                                <button style = "width: 40px; height: 40px"><img src = "./images/downh.png"/></button>
-                                                {{item[4]}}
-                                                <button style = "width: 40px; height: 40px">Affects me</button>
-                                                {{item[5]}}
-                                                <br>
-                                                <span class="ti-heart\"></span>
-                                                <span class="ti-bookmark"></span> 
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-    
-                                {% endfor %} -->
+                          
                         <!-- <div id="main" class="row light-bg detail-options-wrap">
                             <div class="col-sm-6 col-lg-12 col-xl-6 featured-responsive">
                                 <div class="featured-place-wrap">
@@ -362,9 +336,9 @@
     
         <!-- jQuery, Bootstrap JS. -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="js/jquery-3.2.1.min.js"></script>
-        <script src="js/popper.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
+        <script src="./static/js/jquery-3.2.1.min.js"></script>
+        <script src="./static/js/popper.min.js"></script>
+        <script src="./static/js/bootstrap.min.js"></script>
     
     
         <script>
